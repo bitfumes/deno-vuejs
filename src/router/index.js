@@ -33,4 +33,19 @@ const router = new VueRouter({
   routes,
 });
 
+router.beforeEach((to, from,next) => {
+  if(to.path == '/'){
+    if(!window.loggedIn){
+      next('/login')
+    }
+  }
+  if(to.path == '/login'){
+    if(window.loggedIn){
+      next('/')
+    }
+  }
+  next()
+  // console.log(to,from);
+});
+
 export default router;
