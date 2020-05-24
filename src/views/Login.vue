@@ -59,9 +59,11 @@ export default {
     submit() {
       this.errors = {}
       axios.post("http://localhost:4000/login", this.form)
-      .catch((e) => {
-        this.errors = e.response.data.errors;
-      });
+      .then(res => {
+        this.$cookies.set('token',res.data)
+        this.$router.push('/')
+      })
+      .catch((e) => this.errors = e.response.data.errors);
     },
   },
 };

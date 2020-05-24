@@ -4,6 +4,8 @@ import router from "./router";
 import "./assets/css/style.css";
 Vue.config.productionTip = false;
 
+Vue.use(require('vue-cookies'))
+
 new Vue({
   router,
   render: (h) => h(App),
