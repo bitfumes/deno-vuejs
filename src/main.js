@@ -5,7 +5,7 @@ import "./assets/css/style.css";
 Vue.config.productionTip = false;
 
 Vue.use(require('vue-cookies'))
-
+window.loggedIn = !! Vue.$cookies.get('token')
 new Vue({
   router,
   render: (h) => h(App),

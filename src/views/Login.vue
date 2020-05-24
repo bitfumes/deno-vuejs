@@ -61,7 +61,7 @@ export default {
       axios.post("http://localhost:4000/login", this.form)
       .then(res => {
         this.$cookies.set('token',res.data)
-        this.$router.push('/')
+        window.location = '/'
       })
       .catch((e) => this.errors = e.response.data.errors);
     },
